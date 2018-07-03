@@ -1,0 +1,21 @@
+import socket
+import time
+def send():
+	c1, addr = s.accept()
+	print repr(c1.recv(4096))
+	print('client connected from',addr)
+	c1.send('''<html>
+	<head> <title>HTTP Proxy</title> </head>
+	<body> <h1>HTTP Proxy</h1>
+	</body>
+	</html>''')
+	time.sleep(.01)
+	c1.close()
+addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
+s = socket.socket()
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+s.bind(addr)
+s.listen(5)
+print('listening on', addr)
+while True:
+	send()
