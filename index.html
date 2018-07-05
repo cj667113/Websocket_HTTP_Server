@@ -3,16 +3,24 @@
   <head>
     <title>Web Socket Example</title>
     <meta charset="UTF-8">
-    <script>
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <script type="text/javascript" charset="utf-8">
       window.onload = function() {
         var s = new WebSocket("ws://10.101.5.206:9876/");
-        s.onopen = function(e) { alert("opened"); }
-        s.onclose = function(e) { alert("closed"); }
-        s.onmessage = function(e) { alert("got: " + e.data); }
-      };
+        s.onopen = function(e) {document.getElementById("connection").innerHTML="Connection: open"; }
+        s.onclose = function(e) {document.getElementById("connection").innerHTML="Connection: closed"; }
+	s.onmessage =function(e){
+		var thermal = document.getElementById('image');
+		thermal.src = 'data:image/jpg;base64,'+e.data;
+		document.body.appendChild(thermal);
+	}
+	}
     </script>
   </head>
     <body>
-      <div id="holder" style="width:600px; height:300px"></div>
+	<center><img id = "image" height="360" width="360"/></center>
+	<p id ="connection"></p>
+	<p id = "output"></p>
     </body>
 </html>
+
