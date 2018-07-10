@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Web Socket Example</title>
+    <title>ITS HD-FLiR-B/W</title>
     <meta charset="UTF-8">
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <script type="text/javascript" charset="utf-8">
       window.onload = function() {
-        var s = new WebSocket("ws://10.101.5.206:9876/");
+        var s = new WebSocket("ws://10.101.8.26:9876/");
         s.onopen = function(e) {document.getElementById("connection").innerHTML="Connection: open"; }
         s.onclose = function(e) {document.getElementById("connection").innerHTML="Connection: closed"; }
 	s.onmessage =function(e){
@@ -17,10 +17,10 @@
 	}
     </script>
   </head>
-    <body>
-	<center><img id = "image" height="360" width="360"/></center>
-	<p id ="connection"></p>
-	<p id = "output"></p>
-    </body>
+    <body><center>
+	<img id = "image" style="display:block; margin:0 auto; height="60%" width="60%"/>
+	<!--<p id ="connection"></p>-->
+	<!--<p id = "output"></p>-->
+    </center></body>
 </html>
 
