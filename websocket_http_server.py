@@ -9,7 +9,6 @@ import sys
 import cv2
 import cv
 import numpy as np
-from pylepton import Lepton
 
 parser = ConfigParser.RawConfigParser()
 configFilePath =r'server.conf'
@@ -24,18 +23,7 @@ websocket_interface = parser.get('Server-Configurations', 'Websocket_Interface')
 websocket_port = parser.get('Server-Configurations', 'Websocket_Port')
 websocket_port = int(websocket_port)
 image_path = parser.get('Server-Configurations', 'Image')
-def capture(device = "/dev/spidev0.1"):
-	with Lepton(device) as l:
-		a,_ = l.capture()
-	cv2.normalize(a, a, 0, 65535, cv2.NORM_MINMAX)
-	np.right_shift(a, 8, a)
-	return np.uint8(a)
 
-def save_image():
-	while True:
-		image = capture()
-		image =cv2.cvtColor(image, cv.CV_GRAY2BGR)
-		cv2.imwrite("thermal.jpg", image)
 def http_server():
 	addr = socket.getaddrinfo(http_interface, http_port)[0][-1]
 	s = socket.socket()
@@ -87,6 +75,5 @@ def websocket_server():
 	server.set_fn_client_left(client_left)
 	server.run_forever()
 
-threading.Thread(target=save_image).start()
 threading.Thread(target=websocket_server).start()
 threading.Thread(target=http_server).start()
