@@ -1,6 +1,6 @@
 # Websocket_HTTP_Server
 
-![alt-text](https://raw.githubusercontent.com/cj667113/Websocket_HTTP_Server/master/Img/browser_connection.jpg)
+<p align="center"><img src="https://raw.githubusercontent.com/cj667113/Websocket_HTTP_Server/master/Img/browser_connection.jpg")</p>
 
 Websocket_HTTP_Server is a collection of files that will easily display a set of data being gathered over a web browser, the collection was originally built to display thermal images over http/tcp port 80 in a real-time fashion. When connecting to the http server, the server delieves index.html that will launch a javascript program on load. This program connects to the websocket server, where the websocket server pushes data down to all the clients.
 
