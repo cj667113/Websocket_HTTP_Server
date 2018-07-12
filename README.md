@@ -14,3 +14,5 @@ index.html is server by the http server, which onload will hook into the websock
 ![alt-text](https://raw.githubusercontent.com/cj667113/Websocket_HTTP_Server/master/Img/index.jpg)
 
 server.conf is the configuration file that websocket_http_server.py will use in order to determine that port and interface numbers that the servers will broadcast on.
+
+![alt-text](https://raw.githubusercontent.com/cj667113/Websocket_HTTP_Server/master/Img/server_conf.jpg)
