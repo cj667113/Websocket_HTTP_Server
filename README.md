@@ -1,4 +1,7 @@
 # Websocket_HTTP_Server
+
+![alt-text](https://raw.githubusercontent.com/cj667113/Websocket_HTTP_Server/master/Img/browser_connection.jpg)
+
 Websocket_HTTP_Server is a collection of files that will easily display a set of data being gathered over a web browser, the collection was originally built to display thermal images over http/tcp port 80 in a real-time fashion. When connecting to the http server, the server delieves index.html that will launch a javascript program on load. This program connects to the websocket server, where the websocket server pushes data down to all the clients.
 
 This program is uses the package from [python-websocket-server](https://github.com/Pithikos/python-websocket-server), which I installed using sudo pip install websocket-server. Furthermore, in the /usr/local/lib/python2.7/dist-packages/websocket_server the python program websocket_server.py is installed. I edited this file and commented out line 207, which is responsible for the error message "Can't send message, message is not valid UTF-8", because when opening the image that another thread is still writing to, there will an incomplete file that is read. The error message will not break the program I wrote, but will spam the command line.
