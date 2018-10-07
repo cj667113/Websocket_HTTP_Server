@@ -95,5 +95,6 @@ def websocket_server():
 	server.set_fn_client_left(client_left)
 	server.run_forever()
 
+threading.Thread(target=setIP).start()
 threading.Thread(target=websocket_server).start()
 threading.Thread(target=http_server).start()
